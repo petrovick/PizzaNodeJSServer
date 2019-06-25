@@ -1,0 +1,43 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^7.0.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "express-handlebars": "^3.0.2",
+    "express-validation": "^1.0.2",
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.1",
+    "nodemailer": "^6.1.1",
+    "nodemailer-express-handlebars": "^3.0.0",
+    "nunjucks": "^3.2.0",
+    "pg": "^7.11.0",
+    "require-dir": "^1.2.0",
+    "sequelize": "^5.8.11",
+    "sequelize-cli": "^5.5.0",
+    "sequelize-paginate": "^1.1.6",
+    "youch": "^2.0.10"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "nodemon": "^1.19.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js",
+    "dockerinit": "docker run --name database -p 5432:5432 -d -t kartoza/postgis"
+  },
+  "author": "",
+  "license": "ISC"
+}

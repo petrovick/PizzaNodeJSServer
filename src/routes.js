@@ -59,10 +59,13 @@ routes.get(
   '/productsize/:product_type_id',
   controllers.ProductSizeController.index
 )
-routes.post('/productsize/', controllers.ProductSizeController.store)
+routes.post(
+  '/productsize/:product_type_id',
+  controllers.ProductSizeController.store
+)
 
 // CRUD Orders
-routes.get('/orders', controllers.OrderController.index)
-routes.post('/orders', controllers.OrderController.store)
+routes.get('/order', controllers.OrderController.index)
+routes.post('/order', controllers.OrderController.store)
 
 module.exports = routes

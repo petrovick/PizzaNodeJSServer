@@ -17,6 +17,26 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DECIMAL
       },
+      obs: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      zip: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      street: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      number: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
+      neighborhood: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
       user_id: {
         type: Sequelize.INTEGER,
         references: { model: 'users', key: 'id' },

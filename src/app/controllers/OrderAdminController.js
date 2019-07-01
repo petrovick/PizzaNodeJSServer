@@ -2,8 +2,12 @@ const {
   Order,
   User,
   ProductTypeSizeOrder,
-  ProductTypeSize
+  ProductTypeSize,
+  ProductType
 } = require('../models')
+
+const Sequelize = require('sequelize')
+const config = require('../../config/database') // [env]
 
 class OrderAdminController {
   async index (req, res, auth) {
@@ -25,14 +29,27 @@ class OrderAdminController {
         {
           include: [
             {
-              model: ProductTypeSize
+              model: 'product_type_size_id'
             }
           ]
         }
       )
-      console.log('Aqui 1')
-      console.log(productOrders[0].ProductTypeSize)
-      console.log('Aqui 2')
+
+      for (let j = 0; j < productOrders.length; j++) {
+        var productTypeSizes = await ProductTypeSize.findAll(
+          {
+            where: { id: productOrders[j].product_type_size_id }
+          },
+          {
+            include: [
+              {
+                model: ProductType
+              }
+            ]
+          }
+        )
+        productOrders[j].setDataValue('ProductTypeSizes', productTypeSizes)
+      }
       orders[i].setDataValue('ProductTypeSizeOrders', productOrders)
     }
     return res.status(200).json(orders)

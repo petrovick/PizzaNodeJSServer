@@ -36,8 +36,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
 
-  User.prototype.generateToken = function ({ id }) {
-    return jwt.sign({ id }, authConfig.secret, {
+  User.prototype.generateToken = function ({ id, is_admin }) {
+    return jwt.sign({ id, is_admin }, authConfig.secret, {
       expiresIn: authConfig.ttl // 86400ms, ou seja, 1 dia
     })
   }

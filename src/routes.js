@@ -23,6 +23,11 @@ routes.post(
 // usar esse middlaware daqui pra baixo
 routes.use(AuthMiddleware)
 
+routes.post(
+  '/usersAdmin',
+  validate(validators.User),
+  controllers.UserAdminController.store
+)
 routes.get('/test', controllers.TestAuthController.store)
 
 // CRUD Product
@@ -62,7 +67,10 @@ routes.get(
 routes.post('/productsize/', controllers.ProductSizeController.store)
 
 // CRUD Orders
-routes.get('/orders', controllers.OrderController.index)
-routes.post('/orders', controllers.OrderController.store)
+routes.get('/user/orders', controllers.OrderController.index)
+routes.post('/user/orders', controllers.OrderController.store)
+
+// Admin Orders
+routes.get('/admin/orders', controllers.OrderAdminController.index)
 
 module.exports = routes

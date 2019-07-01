@@ -15,6 +15,10 @@ module.exports = async (req, res, next) => {
   try {
     var decoded = await promisify(jwt.verify)(token, authConfig.secret)
     req.userId = decoded.id
+    req.isAdmin = decoded.is_admin
+    if (req.path.includes('/admin/') && !req.isAdmin) {
+      return res.status(401).json({ error: 'Token invalid' })
+    }
     return next()
   } catch (err) {
     return res.status(401).json({ error: 'Token invalid' })

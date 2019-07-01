@@ -86,3 +86,7 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+# CUSTOM PETROVICK
+yarn.lock
+parckage-json.lock

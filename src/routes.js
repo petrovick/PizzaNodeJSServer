@@ -64,7 +64,10 @@ routes.get(
   '/productsize/:product_type_id',
   controllers.ProductSizeController.index
 )
-routes.post('/productsize/', controllers.ProductSizeController.store)
+routes.post(
+  '/productsize/:product_type_id',
+  controllers.ProductSizeController.store
+)
 
 // CRUD Orders
 routes.get('/user/orders', controllers.OrderController.index)

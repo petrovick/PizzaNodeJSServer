@@ -3,7 +3,12 @@ const sequelizePaginate = require('sequelize-paginate')
 module.exports = (sequelize, DataTypes) => {
   const Order = sequelize.define('Order', {
     date: DataTypes.DATE,
-    total_price: DataTypes.DECIMAL
+    total_price: DataTypes.DECIMAL,
+    obs: DataTypes.STRING,
+    zip: DataTypes.STRING,
+    street: DataTypes.STRING,
+    number: DataTypes.INTEGER,
+    neighborhood: DataTypes.STRING
   })
 
   Order.associate = models => {

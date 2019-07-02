@@ -7,7 +7,7 @@ class ProductTypeImageController {
     let productType = await ProductType.findOne({
       where: { id: req.params.id }
     })
-    productType.url = 'http://192.168.100.10:3000/images/' + prodImg
+    productType.url = 'http://192.168.100.2:3001/images/' + prodImg
     productType = await productType.save()
     return res.json(productType)
   }

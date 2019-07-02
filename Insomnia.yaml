@@ -1,0 +1,647 @@
+_type: export
+__export_format: 4
+__export_date: 2019-07-02T15:34:26.406Z
+__export_source: insomnia.desktop.app:v6.5.4
+resources:
+  - _id: req_9b3263fe5cb649fbb5fd210209cb7b1d
+    authentication:
+      token: "{{ token  }}"
+      type: bearer
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Massas",
+        	"time": 25
+        }
+    created: 1561241229787
+    description: ""
+    headers:
+      - id: pair_270324ccb5134ad39ef6898357f2cb15
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1561241229787
+    method: POST
+    modified: 1561410261957
+    name: Store
+    parameters: []
+    parentId: fld_3a96cadd1713402182f4cc4bff23e12f
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url  }}product"
+    _type: request
+  - _id: fld_3a96cadd1713402182f4cc4bff23e12f
+    created: 1561239492582
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1561239492582
+    modified: 1561239492582
+    name: Product
+    parentId: fld_8a8a750c4c7f44dba1b5409cf2d89933
+    _type: request_group
+  - _id: fld_8a8a750c4c7f44dba1b5409cf2d89933
+    created: 1561147164489
+    description: ""
+    environment:
+      base_url: http://localhost:3001/
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaXNfYWRtaW4iOnRydWUsImlhdCI6MTU2MjAwOTI3NSwiZXhwIjoxNTYyMDk1Njc1fQ.C8Apx0kNcLyiZJ9naO9v4fhJcEiEAItT1QaTHmxTBqk
+    environmentPropertyOrder:
+      "&":
+        - base_url
+        - token
+    metaSortKey: -1561147164489
+    modified: 1562033544883
+    name: Backend - Final
+    parentId: wrk_9946702a7aef4739a2b859a6e909c6a4
+    _type: request_group
+  - _id: wrk_9946702a7aef4739a2b859a6e909c6a4
+    created: 1561147144614
+    description: ""
+    modified: 1561147144614
+    name: Insomnia
+    parentId: null
+    _type: workspace
+  - _id: req_a769617b9f40469b8e2927f837729ca5
+    authentication:
+      token: "{{ token  }}"
+      type: bearer
+    body: {}
+    created: 1561239498300
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1561239498300
+    method: GET
+    modified: 1561241609807
+    name: Index
+    parameters: []
+    parentId: fld_3a96cadd1713402182f4cc4bff23e12f
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url  }}product"
+    _type: request
+  - _id: req_fb674c9a68d64757a2e9fafd93238250
+    authentication:
+      token: "{{ token  }}"
+      type: bearer
+    body:
+      mimeType: multipart/form-data
+      params:
+        - fileName: /media/Faculdade/Downloads/11986182_10206614596317623_682386554_o.jpg
+          id: pair_e6c6e668bb9142379ca5c6f8d1c17e93
+          name: image
+          type: file
+          value: ""
+        - id: pair_e881bf32387f4c6491b47b6d39ab7d58
+          name: ""
+          value: ""
+    created: 1561410764697
+    description: ""
+    headers:
+      - id: pair_270324ccb5134ad39ef6898357f2cb15
+        name: Content-Type
+        value: multipart/form-data
+    isPrivate: false
+    metaSortKey: -1561241229787
+    method: POST
+    modified: 1561415144647
+    name: Store
+    parameters: []
+    parentId: fld_9687827c1f424e3b9fdb3ef3bb9e5657
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url  }}product/2/image"
+    _type: request
+  - _id: fld_9687827c1f424e3b9fdb3ef3bb9e5657
+    created: 1561410764683
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1561231268587
+    modified: 1561410770606
+    name: Product Image
+    parentId: fld_8a8a750c4c7f44dba1b5409cf2d89933
+    _type: request_group
+  - _id: req_a9c5f8890d5841eb8a4f73ec58804178
+    authentication:
+      token: "{{ token  }}"
+      type: bearer
+    body:
+      mimeType: multipart/form-data
+      params:
+        - fileName: /media/Faculdade/Downloads/11986182_10206614596317623_682386554_o.jpg
+          id: pair_e6c6e668bb9142379ca5c6f8d1c17e93
+          name: image
+          type: file
+          value: ""
+        - id: pair_e881bf32387f4c6491b47b6d39ab7d58
+          name: ""
+          value: ""
+    created: 1561414826772
+    description: ""
+    headers:
+      - id: pair_270324ccb5134ad39ef6898357f2cb15
+        name: Content-Type
+        value: multipart/form-data
+    isPrivate: false
+    metaSortKey: -1561241229787
+    method: POST
+    modified: 1561418586631
+    name: Store
+    parameters: []
+    parentId: fld_2e560ed3b4074118a5cd59ffb6f3bd96
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url  }}producttype/3/image"
+    _type: request
+  - _id: fld_2e560ed3b4074118a5cd59ffb6f3bd96
+    created: 1561414826766
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1561227156589.5
+    modified: 1561414972346
+    name: Product Type Image
+    parentId: fld_8a8a750c4c7f44dba1b5409cf2d89933
+    _type: request_group
+  - _id: req_e48477afb58443509f5bbf109fcc0c76
+    authentication:
+      token: "{{ token  }}"
+      type: bearer
+    body:
+      mimeType: multipart/form-data
+      params:
+        - fileName: /media/Faculdade/Downloads/11986182_10206614596317623_682386554_o.jpg
+          id: pair_e6c6e668bb9142379ca5c6f8d1c17e93
+          name: image
+          type: file
+          value: ""
+        - id: pair_e881bf32387f4c6491b47b6d39ab7d58
+          name: ""
+          value: ""
+    created: 1561414989153
+    description: ""
+    headers:
+      - id: pair_270324ccb5134ad39ef6898357f2cb15
+        name: Content-Type
+        value: multipart/form-data
+    isPrivate: false
+    metaSortKey: -1561241229787
+    method: POST
+    modified: 1561414989153
+    name: Store
+    parameters: []
+    parentId: fld_2c1bfebe5ae94e52bd15c32aaf2f24bc
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url  }}producttype/2/image"
+    _type: request
+  - _id: fld_2c1bfebe5ae94e52bd15c32aaf2f24bc
+    created: 1561414989149
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1561225100590.75
+    modified: 1561414998372
+    name: Product Size Image
+    parentId: fld_8a8a750c4c7f44dba1b5409cf2d89933
+    _type: request_group
+  - _id: req_0e42844a10594b5bac6e4649292351d1
+    authentication:
+      token: "{{ token  }}"
+      type: bearer
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Coca Cola",
+        	"url": "Coca Cola URL",
+        	"product_id": 1
+        }
+    created: 1561242659050
+    description: ""
+    headers:
+      - id: pair_270324ccb5134ad39ef6898357f2cb15
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1561241229787
+    method: POST
+    modified: 1561262901952
+    name: Store
+    parameters: []
+    parentId: fld_ca0123bfea0b4123b39633563a665cb4
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url  }}producttype"
+    _type: request
+  - _id: fld_ca0123bfea0b4123b39633563a665cb4
+    created: 1561242659045
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1561223044592
+    modified: 1561242669884
+    name: ProductType
+    parentId: fld_8a8a750c4c7f44dba1b5409cf2d89933
+    _type: request_group
+  - _id: req_61dfd2d03398479db76e216550cb4c95
+    authentication:
+      token: "{{ token  }}"
+      type: bearer
+    body: {}
+    created: 1561242659048
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1561239498300
+    method: GET
+    modified: 1561414950866
+    name: Index
+    parameters: []
+    parentId: fld_ca0123bfea0b4123b39633563a665cb4
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url  }}producttype/3"
+    _type: request
+  - _id: req_add22b00702d4858b736b0633d57021c
+    authentication:
+      token: "{{ token  }}"
+      type: bearer
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"description": "Pequena",
+        	"url": "Pequena URL",
+        	"price": 35.19,
+        	"productTypeId": 2
+        }
+    created: 1561247115540
+    description: ""
+    headers:
+      - id: pair_270324ccb5134ad39ef6898357f2cb15
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1561241229787
+    method: POST
+    modified: 1561263938126
+    name: Store
+    parameters: []
+    parentId: fld_94e0291c2a97483c8913367aaa0ea4e5
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url  }}productsize"
+    _type: request
+  - _id: fld_94e0291c2a97483c8913367aaa0ea4e5
+    created: 1561247115535
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1561214820597
+    modified: 1561247123122
+    name: ProductSize
+    parentId: fld_8a8a750c4c7f44dba1b5409cf2d89933
+    _type: request_group
+  - _id: req_ea79ca327d614ef09ff9da736aa66c42
+    authentication:
+      token: "{{ token  }}"
+      type: bearer
+    body: {}
+    created: 1561247115538
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1561239498300
+    method: GET
+    modified: 1561263763885
+    name: Index
+    parameters: []
+    parentId: fld_94e0291c2a97483c8913367aaa0ea4e5
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url  }}productsize/2"
+    _type: request
+  - _id: req_97207379cabc411691aa6f6e179e6721
+    authentication:
+      token: "{{ token  }}"
+      type: bearer
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"productTypeSizes": [
+        		{
+        			"id": 5,
+        			"price": 35.19
+        		}
+        	],
+        	"total": 35.19
+        }
+    created: 1561267072196
+    description: ""
+    headers:
+      - id: pair_270324ccb5134ad39ef6898357f2cb15
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1561241229787
+    method: POST
+    modified: 1561268053235
+    name: Store
+    parameters: []
+    parentId: fld_1d2873fea941462f9d13e60506b91acf
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url  }}orders"
+    _type: request
+  - _id: fld_1d2873fea941462f9d13e60506b91acf
+    created: 1561267072186
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1561210708599.5
+    modified: 1561267085223
+    name: Order
+    parentId: fld_8a8a750c4c7f44dba1b5409cf2d89933
+    _type: request_group
+  - _id: req_d525cdce80434fdb894abc78dadde0b4
+    authentication:
+      token: "{{ token  }}"
+      type: bearer
+    body: {}
+    created: 1561267072194
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1561239498300
+    method: GET
+    modified: 1561268508245
+    name: Index
+    parameters: []
+    parentId: fld_1d2873fea941462f9d13e60506b91acf
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url  }}orders"
+    _type: request
+  - _id: req_0776cf2e5b804f82b8ebf6d02e50c7cd
+    authentication:
+      token: "{{ token  }}"
+      type: bearer
+    body: {}
+    created: 1562000129335
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1561239498300
+    method: GET
+    modified: 1562033422250
+    name: Index
+    parameters: []
+    parentId: fld_0f6370afc0e847e3a91a983c179d40bb
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url  }}admin/orders/"
+    _type: request
+  - _id: fld_0f6370afc0e847e3a91a983c179d40bb
+    created: 1562000129331
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1561208652600.75
+    modified: 1562000136497
+    name: Order Admin
+    parentId: fld_8a8a750c4c7f44dba1b5409cf2d89933
+    _type: request_group
+  - _id: req_d775e5fd5fe04f34886c287742a4c66b
+    authentication:
+      token: "{{ token  }}"
+      type: bearer
+    body: {}
+    created: 1562015335964
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1561239498300
+    method: GET
+    modified: 1562015335964
+    name: Index
+    parameters: []
+    parentId: fld_d7cf6bb286504c4e9bd418084d0755c9
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url  }}admin/orders"
+    _type: request
+  - _id: fld_d7cf6bb286504c4e9bd418084d0755c9
+    created: 1562015335959
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1561207624601.375
+    modified: 1562015347690
+    name: Order Products Admin
+    parentId: fld_8a8a750c4c7f44dba1b5409cf2d89933
+    _type: request_group
+  - _id: req_e2e8a8d26780479ab14d99cd5a9520f8
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "emailadmin@hotmail.com",
+        	"password": "123456"
+        }
+    created: 1561206609624
+    description: ""
+    headers:
+      - id: pair_7cb0f77f46d4464d8758f8e510e53365
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1561206609624
+    method: POST
+    modified: 1562009259047
+    name: Login
+    parameters: []
+    parentId: fld_7bdda66cb3f144a587acd38534381a6c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url  }}user/signin"
+    _type: request
+  - _id: fld_7bdda66cb3f144a587acd38534381a6c
+    created: 1561206596602
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1561206596602
+    modified: 1561206596602
+    name: Session
+    parentId: fld_8a8a750c4c7f44dba1b5409cf2d89933
+    _type: request_group
+  - _id: req_fedf57a8119341a1a06ccead24aedf63
+    authentication:
+      token: "{{ token  }}"
+      type: bearer
+    body: {}
+    created: 1561208752142
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1561206609624
+    method: GET
+    modified: 1561209241436
+    name: Login
+    parameters: []
+    parentId: fld_cc64f6c5a09e48c6b1f77221c9b8206a
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url  }}test"
+    _type: request
+  - _id: fld_cc64f6c5a09e48c6b1f77221c9b8206a
+    created: 1561208752139
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1561176892268
+    modified: 1561267105377
+    name: Test
+    parentId: fld_8a8a750c4c7f44dba1b5409cf2d89933
+    _type: request_group
+  - _id: req_113e03c4a50e45a594927e6da1ffa157
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Gabriel Petrovick",
+        	"email": "petrovickg@hotmail.com",
+        	"password": "123456"
+        }
+    created: 1561147181621
+    description: ""
+    headers:
+      - id: pair_c62d0964638d4918be3e7fad51910e2d
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1561147181621
+    method: POST
+    modified: 1561994204825
+    name: User Store
+    parameters: []
+    parentId: fld_c90b72aaab6d4370a7cb1f9cbb653591
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url  }}users"
+    _type: request
+  - _id: fld_c90b72aaab6d4370a7cb1f9cbb653591
+    created: 1561147187933
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1561147187934
+    modified: 1561147187933
+    name: User
+    parentId: fld_8a8a750c4c7f44dba1b5409cf2d89933
+    _type: request_group
+  - _id: req_1b25c465da344068b37567bb685aef19
+    authentication:
+      token: "{{ token  }}"
+      type: bearer
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Nome Admin 2",
+        	"email": "nomeadmin@hotmail.com",
+        	"password": "123456"
+        }
+    created: 1561994191825
+    description: ""
+    headers:
+      - id: pair_c62d0964638d4918be3e7fad51910e2d
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1561147181571
+    method: POST
+    modified: 1562009321081
+    name: User Admin Store
+    parameters: []
+    parentId: fld_c90b72aaab6d4370a7cb1f9cbb653591
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url  }}admin/users"
+    _type: request
+  - _id: env_5db601984c2334fc42e06ddfb9fbec7a9094f660
+    color: null
+    created: 1561147144677
+    data: {}
+    dataPropertyOrder: null
+    isPrivate: false
+    metaSortKey: 1561147144677
+    modified: 1561147144677
+    name: Base Environment
+    parentId: wrk_9946702a7aef4739a2b859a6e909c6a4
+    _type: environment
+  - _id: jar_5db601984c2334fc42e06ddfb9fbec7a9094f660
+    cookies: []
+    created: 1561147144680
+    modified: 1561147144680
+    name: Default Jar
+    parentId: wrk_9946702a7aef4739a2b859a6e909c6a4
+    _type: cookie_jar

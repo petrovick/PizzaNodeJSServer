@@ -1,9 +1,12 @@
 const express = require('express')
+const cors = require('cors')
 const validate = require('express-validation')
 const multerConfig = require('./config/multer')
 const upload = require('multer')(multerConfig)
 
 const routes = express.Router()
+
+routes.all('*', cors())
 const controllers = require('./app/controllers')
 // const UserController = require('./app/controllers/UserController')
 // const SessionController = require('./app/controllers/SessionController')
@@ -24,7 +27,7 @@ routes.post(
 routes.use(AuthMiddleware)
 
 routes.post(
-  '/usersAdmin',
+  '/admin/users',
   validate(validators.User),
   controllers.UserAdminController.store
 )
@@ -75,5 +78,9 @@ routes.post('/user/orders', controllers.OrderController.store)
 
 // Admin Orders
 routes.get('/admin/orders', controllers.OrderAdminController.index)
+routes.get(
+  '/admin/orders/:id/products',
+  controllers.OrderProductAdminController.index
+)
 
 module.exports = routes

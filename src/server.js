@@ -1,5 +1,6 @@
 require('dotenv').config()
 
+const moment = require('moment')
 const express = require('express')
 const path = require('path')
 const Youch = require('youch')
@@ -9,6 +10,7 @@ class App {
   constructor () {
     this.express = express()
     this.isDev = process.env.NODE_ENV !== 'production'
+    moment.locale('pt-br')
 
     this.middlewares()
     this.routes()

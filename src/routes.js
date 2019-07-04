@@ -16,6 +16,7 @@ const AuthMiddleware = require('./app/middlewares/auth')
 
 const validators = require('./app/validators')
 
+routes.post('/admin/signin', controllers.SessionAdminController.store)
 routes.post('/user/signin', controllers.SessionController.store)
 routes.post(
   '/users',

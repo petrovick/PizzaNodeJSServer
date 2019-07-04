@@ -1,16 +1,16 @@
 const { User } = require('../models')
 
-class SessionController {
+class SessionAdminController {
   async store (req, res) {
-    console.log('Session Request')
     const { email, password } = req.body
     const user = await User.findOne({ where: { email } })
     if (!user) {
       return res.status(401).json({ message: 'Usuário/Senha não confere.' })
-    } else if (user.is_admin === true) {
+    } else if (user.is_admin === false) {
+      console.log('Nao eh admin')
       return res
         .status(401)
-        .json({ message: 'Usuário admin não é permitido nesta aplicação.' })
+        .json({ message: 'Este usuário não é permitido nesta aplicação.' })
     }
 
     if (!(await user.checkPassword(password))) {
@@ -21,4 +21,4 @@ class SessionController {
   }
 }
 
-module.exports = new SessionController()
+module.exports = new SessionAdminController()

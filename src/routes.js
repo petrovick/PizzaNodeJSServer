@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+const handle = require('express-async-handler')
 const validate = require('express-validation')
 const multerConfig = require('./config/multer')
 const upload = require('multer')(multerConfig)
@@ -16,8 +17,8 @@ const AuthMiddleware = require('./app/middlewares/auth')
 
 const validators = require('./app/validators')
 
-routes.post('/admin/signin', controllers.SessionAdminController.store)
-routes.post('/user/signin', controllers.SessionController.store)
+routes.post('/admin/signin', handle(controllers.SessionAdminController.store))
+routes.post('/user/signin', handle(controllers.SessionController.store))
 routes.post(
   '/users',
   validate(validators.User),
@@ -36,7 +37,11 @@ routes.get('/test', controllers.TestAuthController.store)
 
 // CRUD Product
 routes.get('/product/', controllers.ProductController.index)
-routes.post('/product/', controllers.ProductController.store)
+routes.post(
+  '/product/',
+  validate(validators.Product),
+  controllers.ProductController.store
+)
 
 // CRUD Product Image
 routes.post(
@@ -61,7 +66,11 @@ routes.post(
 
 // CRUD ProductType
 routes.get('/producttype/:product_id', controllers.ProductTypeController.index)
-routes.post('/producttype/', controllers.ProductTypeController.store)
+routes.post(
+  '/producttype/',
+  validate(validators.ProductType),
+  controllers.ProductTypeController.store
+)
 
 // CRUD ProductSize
 routes.get(
@@ -69,13 +78,18 @@ routes.get(
   controllers.ProductSizeController.index
 )
 routes.post(
-  '/productsize/:product_type_id',
+  '/productsize',
+  validate(validators.ProductSize),
   controllers.ProductSizeController.store
 )
 
 // CRUD Orders
 routes.get('/user/orders', controllers.OrderController.index)
-routes.post('/user/orders', controllers.OrderController.store)
+routes.post(
+  '/user/orders',
+  validate(validators.Order),
+  controllers.OrderController.store
+)
 
 // Admin Orders
 routes.get('/admin/orders', controllers.OrderAdminController.index)

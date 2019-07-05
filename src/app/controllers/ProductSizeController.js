@@ -31,11 +31,12 @@ class ProductSizeController {
   }
 
   async store (req, res) {
-    const { description, url, price } = req.body
+    const { description, url, price, product_type_id } = req.body
+
     const productSize = await ProductSize.create({ description, url })
 
     await ProductTypeSize.create({
-      product_type_id: req.params.product_type_id,
+      product_type_id: product_type_id,
       product_size_id: productSize.id,
       price
     })

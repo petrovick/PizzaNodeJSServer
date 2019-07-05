@@ -1,6 +1,6 @@
 class TestAuthController {
   async store (req, res) {
-    return res.status(200).json({ message: 'Entrou aqui' })
+    return res.status(200).json({ error: 'Entrou aqui' })
   }
 }
 

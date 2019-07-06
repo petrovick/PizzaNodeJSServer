@@ -2,11 +2,9 @@ const { ProductSize, ProductTypeSize } = require('../models')
 
 class ProductSizeController {
   async index (req, res) {
-    const aaa = ProductSize
-    console.log('Session: %j', aaa)
-    // const productSizes = await ProductSize.findAll()
+    // const productTypeSizes = await ProductTypeSize.findAll()
 
-    const productSizes = await ProductTypeSize.findAll(
+    const productTypeSizes = await ProductTypeSize.findAll(
       {
         where: { product_type_id: req.params.product_type_id }
       },
@@ -20,14 +18,15 @@ class ProductSizeController {
       }
     )
 
-    for (let i = 0; i < productSizes.length; i++) {
+    for (let i = 0; i < productTypeSizes.length; i++) {
       const productSize = await ProductSize.findOne({
-        where: { id: productSizes[i].product_size_id }
+        where: { id: productTypeSizes[i].product_size_id }
       })
-      productSizes[i].setDataValue('ProductSize', productSize)
+      productTypeSizes[i].setDataValue('ProductSize', productSize)
     }
+    console.log(productTypeSizes)
 
-    return res.status(200).json(productSizes)
+    return res.status(200).json(productTypeSizes)
   }
 
   async store (req, res) {

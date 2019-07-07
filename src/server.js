@@ -4,7 +4,9 @@ const moment = require('moment')
 const express = require('express')
 const path = require('path')
 const Youch = require('youch')
+const Sentry = require('@sentry/node')
 const validate = require('express-validation')
+const sentryConfig = require('./config/sentry')
 
 class App {
   constructor () {
@@ -12,13 +14,19 @@ class App {
     this.isDev = process.env.NODE_ENV !== 'production'
     moment.locale('pt-br')
 
+    this.sentry()
     this.middlewares()
     this.routes()
     this.exception()
   }
 
+  sentry () {
+    Sentry.init(sentryConfig)
+  }
+
   middlewares () {
     this.express.use(express.json())
+    this.express.use(Sentry.Handlers.requestHandler())
   }
 
   routes () {
@@ -27,10 +35,9 @@ class App {
   }
 
   exception () {
-    if (process.env.NODE_ENV == 'production') {
-      // The error handler must be before any other error middleware
-      // this.express.use(Sentry.Handlers.errorHandler())
-    }
+    // The error handler must be before any other error middleware
+    this.express.use(Sentry.Handlers.errorHandler())
+
     this.express.use(async (err, req, res, next) => {
       if (err instanceof validate.ValidationError) {
         return res.status(err.status).json(err)
@@ -41,9 +48,7 @@ class App {
         return res.json(await youch.toJSON())
       }
 
-      return res
-        .status(err.status || 500)
-        .json({ error: 'User error connection.' })
+      return res.status(err.status || 500).json({ error: 'Server error.' })
     })
   }
 }

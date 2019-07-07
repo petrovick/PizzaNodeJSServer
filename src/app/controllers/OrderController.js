@@ -7,6 +7,9 @@ const {
   ProductSize
 } = require('../models')
 
+const OrderMail = require('../jobs/OrderMail')
+const Queue = require('../services/Queue')
+
 class OrderController {
   async index (req, res, auth) {
     // Find the user orders
@@ -39,8 +42,6 @@ class OrderController {
   }
 
   async store (req, res) {
-    // console.log(req.body)
-
     const {
       productTypeSizes,
       total,
@@ -62,17 +63,9 @@ class OrderController {
       neighborhood
     })
 
-    console.log('productTypeSizes 3')
-    console.log(productTypeSizes)
-    console.log('productTypeSizes 3.1')
-    console.log(productTypeSizes.lenght)
-    console.log('productTypeSizes 4')
-
     // for (let i = 0; i < productTypeSizes.lenght; i++) {
     productTypeSizes.forEach(async function (item, index, array) {
       // let item = productTypeSizes[i]
-      console.log('No foreach')
-      console.log(item)
       await ProductTypeSizeOrder.create({
         price: item.price,
         date: dateNow,
@@ -80,10 +73,13 @@ class OrderController {
         order_id: order.id
       })
     })
-    console.log('Passou por aqui.')
-    /*
 
-    */
+    const user = await User.findOne({ where: { id: req.userId } })
+
+    Queue.create(OrderMail.key, {
+      user,
+      order
+    }).save()
 
     return res.json(order)
   }

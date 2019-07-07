@@ -22,7 +22,7 @@ routes.post('/user/signin', handle(controllers.SessionController.store))
 routes.post(
   '/users',
   validate(validators.User),
-  controllers.UserController.store
+  handle(controllers.UserController.store)
 )
 
 // usar esse middlaware daqui pra baixo
@@ -31,71 +31,74 @@ routes.use(AuthMiddleware)
 routes.post(
   '/admin/users',
   validate(validators.User),
-  controllers.UserAdminController.store
+  handle(controllers.UserAdminController.store)
 )
-routes.get('/test', controllers.TestAuthController.store)
+routes.get('/test', handle(controllers.TestAuthController.store))
 
 // CRUD Product
-routes.get('/product/', controllers.ProductController.index)
+routes.get('/product/', handle(controllers.ProductController.index))
 routes.post(
   '/product/',
   validate(validators.Product),
-  controllers.ProductController.store
+  handle(controllers.ProductController.store)
 )
 
 // CRUD Product Image
 routes.post(
   '/product/:id/image',
   upload.single('image'),
-  controllers.ProductImageController.store
+  handle(controllers.ProductImageController.store)
 )
 
 // CRUD Product Type Image
 routes.post(
   '/producttype/:id/image',
   upload.single('image'),
-  controllers.ProductTypeImageController.store
+  handle(controllers.ProductTypeImageController.store)
 )
 
 // CRUD Product Size Image
 routes.post(
   '/productsize/:id/image',
   upload.single('image'),
-  controllers.ProductSizeImageController.store
+  handle(controllers.ProductSizeImageController.store)
 )
 
 // CRUD ProductType
-routes.get('/producttype/:product_id', controllers.ProductTypeController.index)
+routes.get(
+  '/producttype/:product_id',
+  handle(controllers.ProductTypeController.index)
+)
 routes.post(
   '/producttype/',
   validate(validators.ProductType),
-  controllers.ProductTypeController.store
+  handle(controllers.ProductTypeController.store)
 )
 
 // CRUD ProductSize
 routes.get(
   '/productsize/:product_type_id',
-  controllers.ProductSizeController.index
+  handle(controllers.ProductSizeController.index)
 )
 routes.post(
   '/productsize',
   validate(validators.ProductSize),
-  controllers.ProductSizeController.store
+  handle(controllers.ProductSizeController.store)
 )
 
 // CRUD Orders
-routes.get('/user/orders', controllers.OrderController.index)
+routes.get('/user/orders', handle(controllers.OrderController.index))
 routes.post(
   '/user/orders',
   validate(validators.Order),
-  controllers.OrderController.store
+  handle(controllers.OrderController.store)
 )
 
 // Admin Orders
-routes.get('/admin/orders', controllers.OrderAdminController.index)
+routes.get('/admin/orders', handle(controllers.OrderAdminController.index))
 routes.get(
   '/admin/orders/:id/products',
-  controllers.OrderProductAdminController.index
+  handle(controllers.OrderProductAdminController.index)
 )
 
 module.exports = routes

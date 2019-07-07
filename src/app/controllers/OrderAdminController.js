@@ -38,7 +38,9 @@ class OrderAdminController {
       '  join public.product_types as product_types on product_types.id = product_type_sizes.product_type_id ' +
       '  join public.product_sizes as product_sizes on product_sizes.id = product_type_sizes.product_size_id ' +
       '  join public.products as products on products.id = product_types.product_id ' +
-      '  join public.users as users on users.id = orders.user_id'
+      '  join public.users as users on users.id = orders.user_id ' +
+      'where orders.date >= current_date ' +
+      'order by orders.date desc '
     console.log(query)
     let orders = await sequelize.query(query)
 

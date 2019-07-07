@@ -4,7 +4,7 @@ This repository represents the frontend project of a whole system for managing o
 
 ## App's Front
 
-[Click here to go to the app's backend.][frontend]
+[Click here to go to the app's frontend.][frontend]
 
 ## App's Mobile
 

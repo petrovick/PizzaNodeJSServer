@@ -19,7 +19,8 @@ class OrderController {
           model: User,
           where: { id: req.userId }
         }
-      ]
+      ],
+      order: [['date', 'DESC']]
     })
     // Get ProductTypeSizes Object
     for (let i = 0; i < orders.length; i++) {
